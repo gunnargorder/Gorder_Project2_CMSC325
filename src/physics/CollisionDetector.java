@@ -15,7 +15,7 @@ import com.jme3.scene.Spatial;
  */
 public class CollisionDetector extends GhostControl implements PhysicsCollisionListener {
     
-    int ball0count, ball1count, ball2count;
+    int ball0count = 0, ball1count = 0, ball2count = 0;
     
     
     public CollisionDetector(){
@@ -29,6 +29,35 @@ public class CollisionDetector extends GhostControl implements PhysicsCollisionL
          
          for(Spatial target: PhysicsTestHelper.getTargets()){
              if((nodeA == target) || (nodeB == target)){
+                 for(Spatial target2: PhysicsTestHelper.getTargets()){
+                     if(target != target2){
+                         if((nodeA == target2) || (nodeB == target2)){
+                             String updateString = target.getName() + " hit " + target2.getName()+" \r\n";
+                        
+                            if((target.getName().equals("Ball0"))||(target2.getName().equals("Ball0"))){
+                                ball0count++;
+                                updateString = updateString + "Ball0 collisions = " + ball0count+" \r\n";
+                            }
+                            if((target.getName().equals("Ball1"))||(target2.getName().equals("Ball1"))){
+                                ball1count++;
+                                updateString = updateString + "Ball1 collisions = " + ball1count+" \r\n";
+                            }
+                            if((target.getName().equals("Ball2"))||(target2.getName().equals("Ball2"))){
+                                ball2count++;
+                                updateString = updateString + "Ball2 collisions = " + ball2count+" \r\n";
+                            }
+
+                            updateString = updateString                      
+                                    +target.getName() +" local Translation: " + target.getLocalTranslation().toString()+" \r\n"
+                                    +target.getName() +" direction: " + target.getLocalRotation().getRotationColumn(2).toString()+" \r\n"
+                                    +target2.getName() +" local Translation: " + target2.getLocalTranslation().toString()+" \r\n"
+                                    +target2.getName() +" direction: " + target2.getLocalRotation().getRotationColumn(2).toString()+" \r\n";
+                            mygame.Main.ballPosOutput = mygame.Main.ballPosOutput + updateString;
+                            System.out.println(updateString);
+                            return;
+                         }
+                     }                
+                 }
                  for(Spatial wall: PhysicsTestHelper.getWalls()){
                     if((nodeA == wall) || (nodeB == wall)){
                         String updateString = target.getName() + " hit " + wall.getName()+" \r\n"
@@ -50,7 +79,7 @@ public class CollisionDetector extends GhostControl implements PhysicsCollisionL
                                 +"Direction: " + target.getLocalRotation().getRotationColumn(2).toString()+" \r\n";
                         mygame.Main.ballPosOutput = mygame.Main.ballPosOutput + updateString;
                         System.out.println(updateString);
-                    }  
+                    }   
                  }
              }
          }

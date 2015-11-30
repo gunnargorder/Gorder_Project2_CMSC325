@@ -34,9 +34,9 @@ public class BallTarget {
                 ballGeometry.getControl(RigidBodyControl.class).setRestitution(1f);
                 ballGeometry.getControl(RigidBodyControl.class).setFriction(0f);
                 Random rand = new Random();
-                float x = rand.nextFloat();
-                float y = rand.nextFloat();
-                float z = rand.nextFloat();
+                float x = rand.nextFloat()*5;
+                float y = rand.nextFloat()+1;
+                float z = rand.nextFloat()*5;
                 ballGeometry.getControl(RigidBodyControl.class).setLinearVelocity(new Vector3f(x,y,z));
                 rootNode.attachChild(ballGeometry);
                 space.add(ballGeometry);                
