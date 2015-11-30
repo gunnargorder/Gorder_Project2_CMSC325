@@ -22,6 +22,7 @@ import com.jme3.input.controls.MouseAxisTrigger;
 import com.jme3.input.controls.MouseButtonTrigger;
 import com.jme3.math.Ray;
 import com.jme3.scene.Geometry;
+import com.jme3.scene.Spatial;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,12 +38,14 @@ import java.util.List;
  */
 public class InputAppState extends AbstractAppState implements AnalogListener, ActionListener {
     
-     private Application app;
+    private Application app;
     private InputManager inputManager;
     private MyGameCharacterControl character; //The Custom Character Control
     private float sensitivity = 5000;
+    
+    public String ballPositions;
 
-    List<Geometry> targets = new ArrayList<Geometry>();
+    List<Spatial> targets = new ArrayList<Spatial>();
     public int hitCount = 0;
     public enum InputMapping{
         
@@ -153,7 +156,7 @@ public class InputAppState extends AbstractAppState implements AnalogListener, A
         this.character = character;
     }
     
-    public void setTargets(List<Geometry> targets){
+    public void setTargets(List<Spatial> targets){
         this.targets = targets;
     }
     
@@ -165,7 +168,7 @@ public class InputAppState extends AbstractAppState implements AnalogListener, A
             Ray r = new Ray(app.getCamera().getLocation(), app.getCamera().getDirection());
             
             CollisionResults collRes = new CollisionResults();
-            for(Geometry g: targets){
+            for(Spatial g: targets){
                 g.collideWith(r, collRes);
             }
             if(collRes.size() > 0){

@@ -1,6 +1,10 @@
 package mygame;
 
+import AI.AIControl;
+import AI.SoundEmitterControl;
+import animations.AIAnimationControl;
 import appstate.InputAppState;
+import characters.AICharacterControl;
 import physics.PhysicsTestHelper;
 import characters.MyGameCharacterControl;
 import com.jme3.app.FlyCamAppState;
@@ -34,13 +38,15 @@ import java.util.List;
  */
 public class Main extends SimpleApplication {
     
-    protected BulletAppState bulletAppState;
+    public static BulletAppState bulletAppState;
     private Vector3f normalGravity = new Vector3f(0, -9.81f, 0);
     BitmapText hitText;
+    BitmapText btmpSpherePositions;
     public static Material lineMat;
-    public static List<Geometry> targets = new ArrayList<Geometry>();
+    //public static List<Spatial> targets = new ArrayList<Spatial>();
     //added appstate variable to facilitate calling the hit counter
     private InputAppState appStateThis;
+    public static String ballPosOutput;
     
     public static void main(String[] args) {
         Main app = new Main();
@@ -59,6 +65,7 @@ public class Main extends SimpleApplication {
         Node scene = setupWorld();
         
         setupCharacter(scene);
+        createAICharacter(PhysicsTestHelper.getTargets());
     }
     
     private Node setupWorld(){
@@ -122,6 +129,22 @@ public class Main extends SimpleApplication {
         hitText.setLocalTranslation(1f , settings.getHeight() - hudText.getLineHeight() - hitText.getLineHeight(), 0f);
         guiNode.attachChild(hitText);
         
+        btmpSpherePositions = new BitmapText(myFont, true);
+        String sphereText = "Sphere Positions\n";
+        for(Spatial target : PhysicsTestHelper.targets){
+            sphereText = sphereText +
+                    target.getName() + " = \n";
+        }
+                
+        btmpSpherePositions.setText(sphereText);
+        btmpSpherePositions.setColor(ColorRGBA.Orange);
+        btmpSpherePositions.setSize(guiFont.getCharSet().getRenderedSize());
+        
+        btmpSpherePositions.setLocalTranslation(1f , settings.getHeight() - 
+                hudText.getLineHeight() - hitText.getLineHeight()-
+                btmpSpherePositions.getLineHeight(), 0f);
+        guiNode.attachChild(btmpSpherePositions);
+        
         
         return scene;
     }
@@ -129,21 +152,76 @@ public class Main extends SimpleApplication {
     private void setupCharacter(Node scene){
         
     }
-     
-   
+    
+    private PhysicsSpace getPhysicsSpace() {
+        return bulletAppState.getPhysicsSpace();
+    }
+    
+    private void createAICharacter(List<Spatial> targets) {
+        // Load model, attach to character node
+       Node sinbad = (Node) assetManager.loadModel("Models/Jaime/Jaime.j3o");
+        
+        sinbad.setLocalScale(1.50f);
+        
+        //Node mainPlayer = createPlayerCharacter();
+        AICharacterControl physicsCharacter = new AICharacterControl(0.3f, 2.5f, 8f);
+        
+        sinbad.addControl(physicsCharacter);
+        getPhysicsSpace().add(physicsCharacter);
+        rootNode.attachChild(sinbad);
+        sinbad.addControl(new AIControl());
+        sinbad.addControl(new AIAnimationControl());
+        
+        CameraNode camNode = new CameraNode("CamNode", cam);
+        camNode.setControlDir(CameraControl.ControlDirection.CameraToSpatial);
+        
+        Geometry g = new Geometry("", new Box(1,1,1));
+        g.setName("Sinbad");
+        g.setModelBound(new BoundingSphere(5f, Vector3f.ZERO));
+        g.updateModelBound();
+        g.setMaterial(lineMat);
+        camNode.attachChild(g);
+        camNode.addControl(new SoundEmitterControl());
+        getFlyByCamera().setMoveSpeed(25);
+        rootNode.attachChild(camNode);
+        //List<Spatial> targets = new ArrayList<Spatial>();
+        //targets.add(camNode);
+        //targets.add(mainPlayer);
+        
+        //jaime.getControl(AIControl.class).setState(AIControl.State.Follow);
+        sinbad.getControl(AIControl.class).setTargetList(targets);
+        //jaime.getControl(AIControl.class).setTarget(camNode);
+    }
     
     
+    String sphereText;
     
     //Update hit counter as required
     @Override
     public void simpleUpdate(float tpf) {
         //TODO: add update code
       hitText.setText("Hits = " + appStateThis.hitCount);
-        
+      sphereText = getSphereText();
+      btmpSpherePositions.setText(sphereText);  
     }
 
     @Override
     public void simpleRender(RenderManager rm) {
         //TODO: add render code
     }
+    private int textUpdateCounter = 0;
+    
+    public String getSphereText(){
+        textUpdateCounter++;
+        
+        if((textUpdateCounter == 0) || (textUpdateCounter % 500 == 0)){
+            sphereText = "Ball Positions\n";
+            for(Spatial target : PhysicsTestHelper.targets){
+                sphereText = sphereText +
+                        target.getName() + " = " + target.getLocalTranslation().toString()+"\n";
+            }
+        } 
+        return sphereText;
+    }
+    
 }
