@@ -9,9 +9,17 @@ import com.jme3.bullet.collision.PhysicsCollisionListener;
 import com.jme3.bullet.control.GhostControl;
 import com.jme3.scene.Spatial;
 
+
 /**
- *
- * @author Gunnar
+ * Author: Gunnar Gorder
+ * Updated: 11/29/2015
+ * CMSC 325, Project 2, UMUC Fall 2015
+ * File: CollisionDetector.java
+ * Description:  The CollisionDetector class adds a collision detection object
+ * to the physics envinronment.  This class is called by the PhysicsTestHelper 
+ * class.  Additionally, this class tracks the ball collisions and updates the 
+ * ballPosOutput string variable in the Main class.  At the same time, it outputs
+ * collision data to the console for user review.
  */
 public class CollisionDetector extends GhostControl implements PhysicsCollisionListener {
     

@@ -25,11 +25,10 @@ import com.jme3.scene.Geometry;
 import com.jme3.scene.Spatial;
 import java.util.ArrayList;
 import java.util.List;
-
 /**
  * Update author: Gunnar Gorder
- * Updated: 11/08/2015
- * CMSC 325, Project 1, UMUC Fall 2015
+ * Updated: 11/29/2015
+ * CMSC 325, Project 2, UMUC Fall 2015
  * File: InputAppState.java
  * Description:  The InputAppState class provides the mapping of the 
  * user input actions to their respective events allowing for the user

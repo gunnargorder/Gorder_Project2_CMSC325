@@ -29,9 +29,9 @@ import java.util.List;
 
 /**
  * Update author: Gunnar Gorder
- * Updated: 11/08/2015
+ * Updated: 11/29/2015
  * File: Main.java
- * CMSC 325, Project 1, UMUC Fall 2015
+ * CMSC 325, Project 2, UMUC Fall 2015
  * Description:  The main class is the driving class for the application
  * it sets up the environment and adds the characters and physics attributes
  * to the environment calling the other application classes as needed

@@ -13,8 +13,13 @@ import com.jme3.math.Vector3f;
 import com.jme3.scene.Node;
 
 /**
- *
- * @author Prof Wireman
+ * Author: Prof Wireman
+ * Update author: Gunnar Gorder
+ * Updated: 11/29/2015
+ * CMSC 325, Project 2, UMUC Fall 2015
+ * File: AICharacterControl.java
+ * Description:  The AICharacterControl class controls an AI character and 
+ * moves it .
  */
 public class AICharacterControl extends BetterCharacterControl 
         implements ActionListener, AnalogListener {

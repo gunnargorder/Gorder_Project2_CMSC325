@@ -18,6 +18,15 @@ import java.util.Random;
  *
  * @author Gunnar
  */
+/**
+ * Author: Gunnar Gorder
+ * Updated: 11/29/2015
+ * CMSC 325, Project 2, UMUC Fall 2015
+ * File: BallTarget.java
+ * Description:  The BallTarget class creates ball object to act as targets
+ * for the AI and adds them to the physics environment as well as the target
+ * list field of the PhysicsTestHelper class.
+ */
 public class BallTarget {
 
     public BallTarget(Node rootNode, AssetManager assetManager, PhysicsSpace space, int i){

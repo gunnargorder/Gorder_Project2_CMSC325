@@ -33,11 +33,11 @@ import com.jme3.scene.Spatial;
 
 /**
  * Update author: Gunnar Gorder
- * Updated: 11/08/2015
- * CMSC 325, Project 1, UMUC Fall 2015
+ * Updated: 11/29/2015
+ * CMSC 325, Project 2, UMUC Fall 2015
  * File: PhysicsTestHelper.java
  * Description:  The PhysicsTestHelper class creates the specified
- * physics to be added to the scene.
+ * physics and environmental objects to be added to the scene.
  */
 public class PhysicsTestHelper {
 
@@ -170,6 +170,7 @@ public class PhysicsTestHelper {
                 BallTarget ball = new BallTarget(rootNode, assetManager, space, i);
             
         }
+        
 
         CollisionDetector collide = new CollisionDetector();
     }

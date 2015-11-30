@@ -18,12 +18,13 @@ import java.io.PrintWriter;
 
 /**
  * Update author: Gunnar Gorder
- * Updated: 11/08/2015
- * CMSC 325, Project 1, UMUC Fall 2015
+ * Updated: 11/29/2015
+ * CMSC 325, Project 2, UMUC Fall 2015
  * File: MyGameCharacterControl.java
  * Description:  The MyGameCharacterControl class declares and defines the 
  * user input available for the game.  It provides the listeners and responses to
- * interface devices actions.
+ * interface devices actions.  It was updated for project 2 to include the ability
+ * to print the sphere tracking data to a file.
  */
 public class MyGameCharacterControl extends BetterCharacterControl 
         implements ActionListener, AnalogListener {

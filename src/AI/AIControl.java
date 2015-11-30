@@ -23,9 +23,16 @@ import com.jme3.scene.shape.Line;
 import java.util.ArrayList;
 import java.util.List;
 
+
 /**
- *
- * @author Prof Wireman
+ * Author: Prof Wireman
+ * Update author: Gunnar Gorder
+ * Updated: 11/29/2015
+ * CMSC 325, Project 2, UMUC Fall 2015
+ * File: AICharacterControl.java
+ * Description:  The AIControl class controls an AI character and 
+ * directs it toward an object identified in the taget list.  The class was
+ * updated to increase the viewing angle and site distance of the AI.
  */
 public class AIControl extends AbstractControl{
 
