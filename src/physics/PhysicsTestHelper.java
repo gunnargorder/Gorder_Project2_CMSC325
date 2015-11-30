@@ -74,6 +74,7 @@ public class PhysicsTestHelper {
         floorGeometry.setLocalTranslation(0, 0, 0);
         floorGeometry.addControl(new RigidBodyControl(0));
         floorGeometry.getControl(RigidBodyControl.class).setRestitution(0f);
+        floorGeometry.getControl(RigidBodyControl.class).setFriction(0f);
         rootNode.attachChild(floorGeometry);
         space.add(floorGeometry);
         
@@ -90,6 +91,7 @@ public class PhysicsTestHelper {
         southWallGeometry.addControl(new RigidBodyControl(0));
         southWallGeometry.setQueueBucket(Bucket.Transparent);
         southWallGeometry.getControl(RigidBodyControl.class).setRestitution(1f);
+        southWallGeometry.getControl(RigidBodyControl.class).setFriction(0f);
         southWallGeometry.addControl(new RigidBodyControl(new MeshCollisionShape(southWall), 0));
         rootNode.attachChild(southWallGeometry);
         space.add(southWallGeometry);
@@ -106,6 +108,7 @@ public class PhysicsTestHelper {
         northWallGeometry.addControl(new RigidBodyControl(0));
         northWallGeometry.setQueueBucket(Bucket.Transparent);
         northWallGeometry.getControl(RigidBodyControl.class).setRestitution(1f);
+        northWallGeometry.getControl(RigidBodyControl.class).setFriction(0f);
         northWallGeometry.addControl(new RigidBodyControl(new MeshCollisionShape(northWall), 0));
         rootNode.attachChild(northWallGeometry);
         space.add(northWallGeometry);
@@ -122,6 +125,7 @@ public class PhysicsTestHelper {
         westWallGeometry.addControl(new RigidBodyControl(0));
         westWallGeometry.setQueueBucket(Bucket.Transparent);
         westWallGeometry.getControl(RigidBodyControl.class).setRestitution(1f);
+        westWallGeometry.getControl(RigidBodyControl.class).setFriction(0f);
         westWallGeometry.addControl(new RigidBodyControl(new MeshCollisionShape(westWall), 0));
         rootNode.attachChild(westWallGeometry);
         space.add(westWallGeometry);
@@ -138,6 +142,7 @@ public class PhysicsTestHelper {
         eastWallGeometry.addControl(new RigidBodyControl(0));
         eastWallGeometry.setQueueBucket(Bucket.Transparent);
         eastWallGeometry.getControl(RigidBodyControl.class).setRestitution(1f);
+        eastWallGeometry.getControl(RigidBodyControl.class).setFriction(0f);
         eastWallGeometry.addControl(new RigidBodyControl(new MeshCollisionShape(eastWall), 0));
         rootNode.attachChild(eastWallGeometry);
         space.add(eastWallGeometry);
@@ -154,6 +159,7 @@ public class PhysicsTestHelper {
         lidGeometry.addControl(new RigidBodyControl(0));
         lidGeometry.setQueueBucket(Bucket.Transparent);
         lidGeometry.getControl(RigidBodyControl.class).setRestitution(1f);
+        lidGeometry.getControl(RigidBodyControl.class).setFriction(0f);
         lidGeometry.addControl(new RigidBodyControl(new MeshCollisionShape(lidWall), 0));
         rootNode.attachChild(lidGeometry);
         space.add(lidGeometry);

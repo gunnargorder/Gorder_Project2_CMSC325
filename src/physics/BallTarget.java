@@ -32,10 +32,11 @@ public class BallTarget {
                 //RigidBodyControl automatically uses box collision shapes when attached to single geometry with box mesh
                 ballGeometry.addControl(new RigidBodyControl(70));
                 ballGeometry.getControl(RigidBodyControl.class).setRestitution(1f);
+                ballGeometry.getControl(RigidBodyControl.class).setFriction(0f);
                 Random rand = new Random();
-                float x = rand.nextFloat()*90 + 10;
-                float y = 0;//rand.nextFloat()*20 + 10;
-                float z = rand.nextFloat()*90 + 10;
+                float x = rand.nextFloat();
+                float y = rand.nextFloat();
+                float z = rand.nextFloat();
                 ballGeometry.getControl(RigidBodyControl.class).setLinearVelocity(new Vector3f(x,y,z));
                 rootNode.attachChild(ballGeometry);
                 space.add(ballGeometry);                
