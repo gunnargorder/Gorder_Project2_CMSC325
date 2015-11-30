@@ -1,0 +1,49 @@
+Ball2 hit WestWall 
+Ball2 collisions = 1 
+Local Translation: (117.32223, 5.2499843, 18.56243) 
+Direction: (0.9202404, -0.30432972, 0.24605101) 
+Ball0 hit EastWall 
+Ball0 collisions = 1 
+Local Translation: (-116.40079, 5.2499976, 61.71113) 
+Direction: (0.8776242, -0.20603111, 0.43281293) 
+Ball1 hit SouthWall 
+Ball1 collisions = 1 
+Local Translation: (30.891026, 5.2499833, 115.99105) 
+Direction: (-0.032470047, -0.69895977, -0.71442354) 
+Ball2 hit EastWall 
+Ball2 collisions = 2 
+Local Translation: (-117.19691, 5.249985, 2.9242356) 
+Direction: (0.11231095, -0.3815274, 0.9175092) 
+Ball2 hit WestWall 
+Ball2 collisions = 3 
+Local Translation: (117.50457, 5.2499933, -58.57528) 
+Direction: (0.25239885, 0.1745381, 0.9517517) 
+Ball1 hit NorthWall 
+Ball1 collisions = 2 
+Local Translation: (-12.175936, 5.250003, -116.7628) 
+Direction: (0.6797639, 0.55120534, -0.48383236) 
+Ball0 hit SouthWall 
+Ball0 collisions = 2 
+Local Translation: (52.184036, 5.24461, 115.310555) 
+Direction: (-0.27514142, -0.8917007, -0.35939825) 
+Ball2 hit EastWall 
+Ball2 collisions = 4 
+Local Translation: (-116.94134, 5.2499456, -84.093544) 
+Direction: (0.38983715, 0.9019841, 0.18561184) 
+Ball0 hit WestWall 
+Ball0 collisions = 3 
+Local Translation: (115.73999, 5.249986, 91.7028) 
+Direction: (0.2474843, -0.6144773, -0.7491121) 
+Ball2 hit WestWall 
+Ball2 collisions = 5 
+Local Translation: (117.624886, 5.2499843, -95.35174) 
+Direction: (-0.49344355, 0.6965123, -0.5209454) 
+Ball1 hit SouthWall 
+Ball1 collisions = 3 
+Local Translation: (-28.326029, 5.2497234, 115.97568) 
+Direction: (0.404634, 0.80112994, 0.44097865) 
+Ball2 hit EastWall 
+Ball2 collisions = 6 
+Local Translation: (-116.69388, 5.249996, -101.0786) 
+Direction: (0.5492028, 0.8066013, -0.21856523) 
+

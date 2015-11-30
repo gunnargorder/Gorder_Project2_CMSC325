@@ -60,10 +60,11 @@ public class InputAppState extends AbstractAppState implements AnalogListener, A
         StrafeRight,
         MoveForward,
         MoveBackward,
-        Fire;
+        Fire,
+        Print;
     }
     
-    private String[] mappingNames = new String[]{InputMapping.LeanFree.name(), InputMapping.LeanLeft.name(), InputMapping.LeanRight.name(), InputMapping.RotateLeft.name(), InputMapping.RotateRight.name(), InputMapping.LookUp.name(), InputMapping.LookDown.name(), InputMapping.StrafeLeft.name(), InputMapping.StrafeRight.name(), InputMapping.MoveForward.name(), InputMapping.MoveBackward.name(), InputMapping.Fire.name()};
+    private String[] mappingNames = new String[]{InputMapping.LeanFree.name(), InputMapping.LeanLeft.name(), InputMapping.LeanRight.name(), InputMapping.RotateLeft.name(), InputMapping.RotateRight.name(), InputMapping.LookUp.name(), InputMapping.LookDown.name(), InputMapping.StrafeLeft.name(), InputMapping.StrafeRight.name(), InputMapping.MoveForward.name(), InputMapping.MoveBackward.name(), InputMapping.Fire.name(), InputMapping.Print.name()};
     
     
     @Override
@@ -87,9 +88,11 @@ public class InputAppState extends AbstractAppState implements AnalogListener, A
         inputManager.addMapping(InputMapping.StrafeRight.name(), new KeyTrigger(KeyInput.KEY_K), new KeyTrigger(KeyInput.KEY_RIGHT));
         inputManager.addMapping(InputMapping.MoveForward.name(), new KeyTrigger(KeyInput.KEY_U), new KeyTrigger(KeyInput.KEY_UP));
         inputManager.addMapping(InputMapping.MoveBackward.name(), new KeyTrigger(KeyInput.KEY_J), new KeyTrigger(KeyInput.KEY_DOWN));
+        inputManager.addMapping(InputMapping.Print.name(), new KeyTrigger(KeyInput.KEY_P));
         inputManager.addListener(this, mappingNames);
         
         inputManager.addMapping(InputMapping.Fire.name(), new MouseButtonTrigger(MouseInput.BUTTON_LEFT));
+     
     }
     /**
     * 

@@ -31,8 +31,8 @@ public class CollisionDetector extends GhostControl implements PhysicsCollisionL
              if((nodeA == target) || (nodeB == target)){
                  for(Spatial wall: PhysicsTestHelper.getWalls()){
                     if((nodeA == wall) || (nodeB == wall)){
-                        String updateString = target.getName() + " hit " + wall.getName()+"\n"
-                                +target.getName()+"collisions = ";
+                        String updateString = target.getName() + " hit " + wall.getName()+" \r\n"
+                                +target.getName()+" collisions = ";
                         
                         if(target.getName().equals("Ball0")){
                             ball0count++;
@@ -45,9 +45,9 @@ public class CollisionDetector extends GhostControl implements PhysicsCollisionL
                             updateString = updateString + ball2count;
                         }
                         
-                        updateString = updateString  +"\n"                              
-                                +"Local Translation: " + target.getLocalTranslation().toString()+"\n"
-                                +"Direction: " + target.getLocalRotation().getRotationColumn(2).toString()+"\n";
+                        updateString = updateString  +" \r\n"                              
+                                +"Local Translation: " + target.getLocalTranslation().toString()+" \r\n"
+                                +"Direction: " + target.getLocalRotation().getRotationColumn(2).toString()+" \r\n";
                         mygame.Main.ballPosOutput = mygame.Main.ballPosOutput + updateString;
                         System.out.println(updateString);
                     }  

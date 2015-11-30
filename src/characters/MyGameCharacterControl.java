@@ -14,6 +14,7 @@ import com.jme3.renderer.Camera;
 import com.jme3.scene.CameraNode;
 import com.jme3.scene.Node;
 import com.jme3.scene.control.CameraControl;
+import java.io.PrintWriter;
 
 /**
  * Update author: Gunnar Gorder
@@ -53,7 +54,24 @@ public class MyGameCharacterControl extends BetterCharacterControl
             jump();
         } else if (action.equals("Duck")) {
             setDucked(isPressed);
-        } 
+        } else if(action.equals("Print")){
+            if(isPressed){
+                printData();
+            }
+        }
+    }
+    
+    public void printData(){
+        
+        try{
+            PrintWriter writer = new PrintWriter("BallPositionData.txt", "ASCII");
+            writer.println(mygame.Main.ballPosOutput);
+            writer.close();    
+            System.out.println("Printed data to file");
+        } catch (Exception e) {
+            System.out.println("Printing data to file failed\n" +
+                    e.toString());
+        }
     }
     
     public void onAnalog(String name, float value, float tpf) {

@@ -46,7 +46,7 @@ public class Main extends SimpleApplication {
     //public static List<Spatial> targets = new ArrayList<Spatial>();
     //added appstate variable to facilitate calling the hit counter
     private InputAppState appStateThis;
-    public static String ballPosOutput;
+    public static String ballPosOutput ="";
     
     public static void main(String[] args) {
         Main app = new Main();
@@ -220,6 +220,7 @@ public class Main extends SimpleApplication {
                 sphereText = sphereText +
                         target.getName() + " = " + target.getLocalTranslation().toString()+"\n";
             }
+            sphereText = sphereText + "Press P to Print Data to File";
         } 
         return sphereText;
     }
